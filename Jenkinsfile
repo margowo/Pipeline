@@ -11,7 +11,7 @@ pipeline {
         stage('Build image') {
             steps {
                 sh 'mvn clean install'
-                sh 'docker build -t bjgomes/maven:latest .'
+                sh 'docker build -t margow/maven:latest .'
             }
         }
         stage('Login') {
@@ -21,7 +21,7 @@ pipeline {
 		}
         stage('push image') {
             steps {
-                sh 'docker push bjgomes/maven:latest'
+                sh 'docker push margow/maven:latest'
             }
         }
         stage ('K8S Deploy') {
