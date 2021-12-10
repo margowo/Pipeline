@@ -2,18 +2,18 @@ apiVersion: v1
 clusters:
 - cluster:
     certificate-authority-data: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUM1ekNDQWMrZ0F3SUJBZ0lCQURBTkJna3Foa2lHOXcwQkFRc0ZBREFWTVJNd0VRWURWUVFERXdwcmRXSmwKY201bGRHVnpNQjRYRFRJeE1USXhNREUwTWpJMU1Gb1hEVE14TVRJd09ERTBNakkxTUZvd0ZURVRNQkVHQTFVRQpBeE1LYTNWaVpYSnVaWFJsY3pDQ0FTSXdEUVlKS29aSWh2Y05BUUVCQlFBRGdnRVBBRENDQVFvQ2dnRUJBS1ZuCk5FZGJPM3VFU1RoYTQ2S2xTTzhKSEJUNU96V0d3Y0FVMjVVcGxFbU56UDVQekJIdEUwS1RSVC9TeTM1Q2pGdUsKb041QVNpVVJ2dGRZc3YwODcyQ1ZFV3VVOHc0WnVzaHE3YnlvazhzaWUvSzBWNnpmcVlBc00yanJ6NHg2WWtGTQpHTGMzbjJqZ29jTG1taXhqczZSYWZzZGdvTjk1UGl4QmlBSUZnU3RqRTdKTHlBUm8zVUtnVVQ1RWtpcXRreThYCmpoTmZCVktaUWUvSGtDM2hKeXR6OTNxcmRyM3lsVEFmYTdLRkZNWWdYbit6cE9Zc1REb1EwNkU3N0JDQUROWWgKdXhEcktycHFzUnJXVndndnd0akh3S1lCOUw4N01qcGpwY3NYMkRpRWQ1SGJVWFJZdWpoSlpiMzhDZjZSOVpVYQozUndxZ1ZncWsyZjFabWIxVVhNQ0F3RUFBYU5DTUVBd0RnWURWUjBQQVFIL0JBUURBZ0trTUE4R0ExVWRFd0VCCi93UUZNQU1CQWY4d0hRWURWUjBPQkJZRUZJOWdWdFFOKzhXYVlWZzAwUVc4UFk5aWxyT2lNQTBHQ1NxR1NJYjMKRFFFQkN3VUFBNElCQVFBMHUxb2I5YVY3cDBsZUtWblcrTTZrcU9KWjgzcHdCUWJQYXlTMWtYY2RPcGhSSktSRAo0TTVmQzVFUGxRY0h3MmpJTVF2WDlTVTBTYm9WL0l5U2dCeXNGTDBlRHllZXp1V0tpZVFFUEFSdkZWaTNIRE1vCkNvTitudWpVK09ydWhydTBBdStxU2paOUI3aXhUM3cxcndFUGdmd2MvMi93ZGI3TzlvT3VGWEdCREhTUEtzTXEKZitiOG9rU3hoQmxEZW1KbW1NajExRVdHWVdVZHIvMkxNN1NzRFFPRVloVzRvU2NmNEFTbXZxVXd2TEhiRTVkegp4T1lKK04wSVRuajJWcDM1Sm45Ukozem1BR29KMm02QTd5YU1sQVJlNG9KeDdPclkrUGRSdzAxV0lSaWU3NWxnCnE1emxsZFlpK3cvOXpTb2s0ZEJCZ0pPOWx2eFArbzVFNWdySAotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tCg==
-    server: https://3D4E162B221217C0450252E6F624602F.gr7.us-east-2.eks.amazonaws.com
-  name: pipeline.us-east-2.eksctl.io
+    server: https://3D4E162B221217C0450252E6F624602F.gr7.us-east-1.eks.amazonaws.com
+  name: pipeline.us-east-1.eksctl.io
 contexts:
 - context:
-    cluster: pipeline.us-east-2.eksctl.io
-    user: BGomes@pipeline.us-east-2.eksctl.io
-  name: BGomes@pipeline.us-east-2.eksctl.io
-current-context: BGomes@pipeline.us-east-2.eksctl.io
+    cluster: pipeline.us-east-1.eksctl.io
+    user: margo@pipeline.us-east-1.eksctl.io
+  name: margo@pipeline.us-east-1.eksctl.io
+current-context: margo@pipeline.us-east-1.eksctl.io
 kind: Config
 preferences: {}
 users:
-- name: BGomes@pipeline.us-east-2.eksctl.io
+- name: margo@pipeline.us-east-1.eksctl.io
   user:
     exec:
       apiVersion: client.authentication.k8s.io/v1alpha1
@@ -23,7 +23,7 @@ users:
       - --cluster-name
       - pipeline
       - --region
-      - us-east-2
+      - us-east-1
       command: aws
       env:
       - name: AWS_STS_REGIONAL_ENDPOINTS
