@@ -11,6 +11,69 @@
     Run the script (initial jenkins password will be the final output)
         sudo ./setup.sh
 
+## Skip Above and do this instead:
+
+# Configure Jenkins
+
+## Login to jenkins and create account
+
+    sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+    
+  ## Install maven
+  
+    cd /opt
+    sudo wget https://dlcdn.apache.org/maven/maven-3/3.8.4/binaries/apache-maven-3.8.4-bin.tar.gz
+    sudo tar -xzvf apache-maven-3.8.4-bin.tar.gz
+    sudo mv apache-maven-3.8.4 maven
+    ls
+    sudo rm -rf apache-maven-3.8.4
+    
+  ## Put on Path
+    
+     cd
+     ls -la
+     nano .profile
+     
+     add to bottom:  
+     M2=/opt/maven/bin
+     M2_HOME=/opt/maven
+     PATH=$PATH:$M2_HOME:$M2
+
+# restart terminal!!
+
+    Check to ensure directory saved:
+    $M2
+    $M2_HOME
+    
+    Check Maven version:
+    mvn --version
+    
+## Set up jenkins tools
+
+    set up global tools
+        1. jdk: 
+           1. Name: JAVA_HOME
+           2. JAVA_HOME: /usr/lib/jvm/java-11-openjdk-amd64/
+        2. Git
+           1. Name: Git
+           2. path to git: /usr/bin/git
+        3. Maven
+           1. Name: MAVEN_HOME
+           2. MAVEN_HOME: /opt/maven   
+    
+    install suggested plugins
+    install plugins
+        1. maven integration
+        3. docker
+        4. docker pipeline
+        5. kubernetes
+        6. kubernetes cli
+        7. blue ocean
+        8. AWS credentials
+        
+## Install Docker
+    sudo apt install docker.io
+
 ## Run the following commands
 
     sudo usermod -aG docker $USER
@@ -21,41 +84,15 @@
 
 # restart terminal!!
 
+    check: 
+    docker ps
+    sudo su jenkins
+
 ___
-
-
-# Configure Jenkins
-
-## Login to jenkins and create account
-
-    sudo cat /var/lib/jenkins/secrets/initialAdminPassword
-
-## Set up jenkins tools
-
-    install suggested plugins
-    install plugins
-        1. maven integration
-        3. docker
-        4. docker pipeline
-        5. kubernetes
-        6. kubernetes cli
-        7. blue ocean
-        8. AWS credentials
-
-    set up global tools
-        1. jdk: 
-           1. Name: JAVA_HOME
-           2. JAVA_HOME: /usr/lib/jvm/java-11-openjdk-amd64/
-        2. Git
-           1. Name: Git
-           2. path to git: /usr/bin/git
-        3. Maven
-           1. Name: Maven
-           2. MAVEN_HOME: /opt/maven
 
 ## set-up credentials in jenkins
 
-    add docker creds
+    add docker creds: login to docker. Account settings. Security. New Access Token. Copy generated token. Go to Jenkins and paste in "Manage Creds". ID: Docker
     add aws creds
 
 ___
@@ -64,7 +101,7 @@ ___
 
     1. create pipeline in jenkins
        1. add in your github repository with Jenkinsfile in pipeline config
-    2. initialize github webhook 
+    2. initialize github webhook  
        1. http://<jenkins_public_ip>:8080/github-webhook/
     3. Set up docker credentials using docker API token from dockerhub
 
