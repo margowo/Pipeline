@@ -127,12 +127,14 @@ ___
 
     sudo mv /tmp/eksctl /usr/local/bin
 
-## Set up EKS and Jenkins to finalize your pipeline
+## Set up EKS and Jenkins to finalize your pipeline <<<<start 12 Dec
 
     Use the clusterconfig.yaml file to configure your EKS cluster 
 
     run the following command:
         
+        eksctl create cluster --name test --instance-types t2.medium --ssh-public-key wongkp
+        Copy "apiVersion:version 1" and everything after. paste to contents of kuber... creds in Jenkins.
         eksctl create cluster --config-file clusterconfig.yaml (will take about 20 minutes or more)
         
         once this is complete, the output will tell you where your config file is located at
