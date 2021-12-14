@@ -164,7 +164,8 @@ ubuntu@ip-172-31-93-228:~$ git config --global user.email "m.margo@me.com"
         once this is complete, the output will tell you where your config file is located at
     
     once this is up and running you will need to create a cluster config secret in jenkins
-        1. make a copy of your config file and put it in a location where you can upload it in jenkins
+        1. make a copy of your config file and put it in a location where you can upload it in jenkins:
+        cat ~/.kube/config
         2. go to credentials and create a new global credential and select secret file
         3. upload your config file in the secret file and give it a name.  You will reference this in your Jenkinsfile
 
