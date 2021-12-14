@@ -128,14 +128,37 @@ ___
 
     sudo mv /tmp/eksctl /usr/local/bin
 
-## Set up EKS and Jenkins to finalize your pipeline <<<<start 12 Dec
+## Set up EKS and Jenkins to finalize your pipeline 
 
     Use the clusterconfig.yaml file to configure your EKS cluster 
+    clone repository: git clone https://github.com/margowo/Pipeline.git
 
+Find yaml file: 
+ubuntu@ip-172-31-93-228:~$ cd Pipeline/
+ubuntu@ip-172-31-93-228:~/Pipeline$ ls
+ Dockerfile        Jenkinsfile   clusterconfig.yaml   deployment.yaml   src
+'Instance Setup'   README.md     config               pom.xml           target
+
+read REaDME:
+ubuntu@ip-172-31-93-228:~/Pipeline$ cat README.md
+
+Edit read me:
+ubuntu@ip-172-31-93-228:~/Pipeline$ nano README.md
+
+save changes.
+
+ubuntu@ip-172-31-93-228:~/Pipeline$ git status
+ubuntu@ip-172-31-93-228:~/Pipeline$ git commit -am "edited readme file"
+ubuntu@ip-172-31-93-228:~/Pipeline$ git push
+
+Save github creds:
+ubuntu@ip-172-31-93-228:~/Pipeline$ git config --global credential.helper store
+
+configure user info
+ubuntu@ip-172-31-93-228:~$ git config --global user.name "margowo"
+ubuntu@ip-172-31-93-228:~$ git config --global user.email "m.margo@me.com"
+    
     run the following command:
-        
-        eksctl create cluster --name test --instance-types t2.medium --ssh-public-key wongkp
-        Copy "apiVersion:version 1" and everything after. paste to contents of kuber... creds in Jenkins.
         eksctl create cluster --config-file clusterconfig.yaml (will take about 20 minutes or more)
         
         once this is complete, the output will tell you where your config file is located at
