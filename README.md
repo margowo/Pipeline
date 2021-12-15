@@ -2,7 +2,7 @@
 
 ## run setup.sh script once VM is provisioned
 
-hello yo!
+Merry Christmas>>>
     create a file called setup.sh in the current directory
     copy contents of jenkins.sh in the repository to that file and save it
     
