@@ -2,7 +2,6 @@
 
 ## run setup.sh script once VM is provisioned
 
-Merry Christmas>>>Happy New Year!
     create a file called setup.sh in the current directory
     copy contents of jenkins.sh in the repository to that file and save it
     
@@ -11,6 +10,8 @@ Merry Christmas>>>Happy New Year!
     
     Run the script (initial jenkins password will be the final output)
         sudo ./setup.sh
+
+    Run commands from finalize.sh
 
 ## Skip Above and do this instead:
 
@@ -59,7 +60,7 @@ Merry Christmas>>>Happy New Year!
            1. Name: Git
            2. path to git: /usr/bin/git
         3. Maven
-           1. Name: MAVEN_HOME
+           1. Name: Maven
            2. MAVEN_HOME: /opt/maven   
     
     install suggested plugins
