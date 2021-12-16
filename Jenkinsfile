@@ -4,7 +4,7 @@ pipeline {
         maven 'Maven'
     }
     environment {
-        CREDENTIALS=credentials('Docker')
+        DOCKERHUB_CREDENTIALS=credentials('Docker')
         AWS=credentials('AWS')
     }
     stages {
@@ -16,7 +16,7 @@ pipeline {
         }
         stage('Login') {
 			steps {
-				sh 'echo $CREDENTIALS_PSW | docker login -u $CREDENTIALS_USR --password-stdin'
+				sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
 			}
 		}
         stage('push image') {
